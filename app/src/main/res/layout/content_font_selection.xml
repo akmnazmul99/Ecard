@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:padding="@dimen/activity_padding"
+    android:orientation="vertical"
+    tools:showIn="@layout/activity_font_selection"
+    tools:context="com.example.sampanit.ecard.FontSelection">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Select Fonts"
+        android:textAllCaps="false"
+        android:textSize="22dp"
+        android:textColor="#ff6600"
+        android:textStyle="italic|bold|normal"
+        android:typeface="serif" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:background="@drawable/font_selection_custom_border">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="420dp"
+            android:padding="10dp"
+            android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+            android:scrollbarTrackVertical="@drawable/scrollbar_vertical_track">
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="15dp">
+                <RadioButton
+                    android:id="@+id/font_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle Shape Card"
+                    android:textColor="#ff6600"
+                    android:textSize="20dp"
+                    android:checked="true" />
+                <RadioButton
+                    android:id="@+id/font_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle Shape Card"
+                    android:textColor="#ff6600"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/font_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle Shape Card"
+                    android:textColor="#ff6600"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/font_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle Shape Card"
+                    android:textColor="#ff6600"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/font_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle Shape Card"
+                    android:textColor="#ff6600"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/font_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle Shape Card"
+                    android:textColor="#ff6600"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/font_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle Shape Card"
+                    android:textColor="#ff6600"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/font_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle Shape Card"
+                    android:textColor="#ff6600"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/font_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle Shape Card"
+                    android:textColor="#ff6600"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/font_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle Shape Card"
+                    android:textColor="#ff6600"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/font_11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle Shape Card"
+                    android:textColor="#ff6600"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/font_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle Shape Card"
+                    android:textColor="#ff6600"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/font_13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle Shape Card"
+                    android:textColor="#ff6600"
+                    android:textSize="20dp"/>
+                <RadioButton
+                    android:id="@+id/font_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rectangle Shape Card"
+                    android:textColor="#ff6600"
+                    android:textSize="20dp"
+                    android:layout_marginBottom="10dp"/>
+            </RadioGroup>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
