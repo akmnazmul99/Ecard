@@ -1,25 +1,42 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-  <item android:id="@+id/action_search"
-    android:icon="@android:drawable/ic_menu_search"
-    android:title="@string/action_search"
-    android:showAsAction="ifRoom" />
-  <item android:id="@+id/action_record"
-    android:icon="@android:drawable/presence_video_online"
-    android:title="@string/action_record"
-    android:showAsAction="ifRoom" />
-  <item android:id="@+id/action_save"
-    android:icon="@android:drawable/ic_menu_save"
-    android:title="@string/action_save"
-    android:showAsAction="ifRoom" />
-  <item android:id="@+id/action_label"
-    android:icon="@android:drawable/ic_menu_always_landscape_portrait"
-    android:title="@string/action_label"
-    android:showAsAction="ifRoom" />
-  <item android:id="@+id/action_play"
-    android:icon="@android:drawable/ic_media_play"
-    android:title="@string/action_play"
-    android:showAsAction="ifRoom" />
-  <item android:id="@+id/action_settings"
-    android:title="@string/action_settings"
-    android:showAsAction="never" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.sampanit.ecard.SelectCard" >
+    <item
+        android:id="@+id/dialer_option"
+        android:orderInCategory="101"
+        android:title="@string/options"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_dialog_dialer"/>
+    <item
+        android:id="@+id/search"
+        android:orderInCategory="102"
+        android:title="@string/search"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_search"
+        android:actionViewClass="android.widget.SearchView"/>
+    <item
+        android:id="@+id/share"
+        android:orderInCategory="103"
+        android:title="@string/share"
+        app:showAsAction="always"
+       android:icon="@android:drawable/ic_menu_share" />
+    <item
+        android:id="@+id/premium"
+        android:orderInCategory="104"
+        app:showAsAction="always"
+        android:title="$"
+        android:icon="@android:drawable/bottom_bar"/>
+    <item
+        android:id="@+id/select_card"
+        android:orderInCategory="105"
+        android:title="@string/select_card"
+        app:showAsAction="never"
+        android:icon="@android:drawable/bottom_bar"/>
+    <item
+        android:id="@+id/create_card"
+        android:orderInCategory="106"
+        android:title="@string/create_card"
+        app:showAsAction="never"
+        android:icon="@android:drawable/bottom_bar"/>
 </menu>

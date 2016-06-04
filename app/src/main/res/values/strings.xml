@@ -13,11 +13,24 @@
     <string name="title_activity_card_info_details_update">CardInfoDetailsUpdate</string>
     <string name="title_activity_card_info_manual_update">CardInfoManualUpdate</string>
     <string name="title_activity_select_card">SelectCard</string>
-	<!--main menu -->
-  <string name="action_search">Search</string>
-  <string name="action_record">Record Video</string>
-  <string name="action_save">Save</string>
-  <string name="action_label">Add Label</string>
-  <string name="action_play">Play Video</string>
-  <string name="hello_world">Hello world!</string>
+
+    <!--main menu -->
+    <string name="search">Search</string>
+    <string name="select_card">Select Card</string>
+    <string name="create_card">Create Card</string>
+    <string name="options">options</string>
+    <string name="share">share</string>
+
+    <!--drawable menu -->
+    <string name="profile">Profile</string>
+    <string name="all_contacts">All Contacts</string>
+    <string name="all_cards">All Cards</string>
+    <string name="title_activity_all_cards">AllCards</string>
+    <string name="title_activity_selected_card">SelectedCard</string>
+    <string name="title_activity_all_card_display">AllCardDisplay</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_custom">custom</string>
+
 </resources>
