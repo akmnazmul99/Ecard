@@ -14,16 +14,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class AllCards extends AppCompatActivity
+public class SingleContact extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_cards);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.all_cards_toolbar);
+        setContentView(R.layout.activity_single_contact);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.single_contact_toolbar);
         setSupportActionBar(toolbar);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -31,8 +30,10 @@ public class AllCards extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.all_cards_nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.single_card_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
     }
 
     @Override
@@ -48,7 +49,7 @@ public class AllCards extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.all_cards, menu);
+        getMenuInflater().inflate(R.menu.single_contact, menu);
         return true;
     }
 
@@ -76,14 +77,14 @@ public class AllCards extends AppCompatActivity
         if (id == R.id.nav_profile) {
 
         } else if (id == R.id.nav_all_cantacts) {
-            Intent nav_all_cantacts_intent = new Intent(AllCards.this, AllContacts.class);
+            Intent nav_all_cantacts_intent = new Intent(SingleContact.this, AllContacts.class);
             startActivity(nav_all_cantacts_intent);
         }
-     else if (id == R.id.nav_all_cards) {
+        else if (id == R.id.nav_all_cards) {
 
-    }
+        }
         else if (id == R.id.nav_settings) {
-            Intent nav_setting_intent = new Intent(AllCards.this, Settings.class);
+            Intent nav_setting_intent = new Intent(SingleContact.this, Settings.class);
             startActivity(nav_setting_intent);
         }
 //        if (id == R.id.nav_camera) {

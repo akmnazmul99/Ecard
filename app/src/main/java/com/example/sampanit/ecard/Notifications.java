@@ -14,14 +14,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class AllCards extends AppCompatActivity
+public class Notifications extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_cards);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.all_cards_toolbar);
+        setContentView(R.layout.activity_notifications);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.notification_toolbar);
         setSupportActionBar(toolbar);
 
 
@@ -31,7 +31,7 @@ public class AllCards extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.all_cards_nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.notification_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -48,7 +48,7 @@ public class AllCards extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.all_cards, menu);
+        getMenuInflater().inflate(R.menu.notifications, menu);
         return true;
     }
 
@@ -76,14 +76,14 @@ public class AllCards extends AppCompatActivity
         if (id == R.id.nav_profile) {
 
         } else if (id == R.id.nav_all_cantacts) {
-            Intent nav_all_cantacts_intent = new Intent(AllCards.this, AllContacts.class);
+            Intent nav_all_cantacts_intent = new Intent(Notifications.this, AllContacts.class);
             startActivity(nav_all_cantacts_intent);
         }
-     else if (id == R.id.nav_all_cards) {
+        else if (id == R.id.nav_all_cards) {
 
-    }
+        }
         else if (id == R.id.nav_settings) {
-            Intent nav_setting_intent = new Intent(AllCards.this, Settings.class);
+            Intent nav_setting_intent = new Intent(Notifications.this, Settings.class);
             startActivity(nav_setting_intent);
         }
 //        if (id == R.id.nav_camera) {

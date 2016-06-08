@@ -9,12 +9,12 @@
     tools:openDrawer="start">
 
     <include
-        layout="@layout/app_bar_all_cards"
+        layout="@layout/app_bar_privacy"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <android.support.design.widget.NavigationView
-        android:id="@+id/all_cards_nav_view"
+        android:id="@+id/privacy_nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -22,7 +22,7 @@
         android:background="@color/color_navigation_list_background"
         app:itemIconTint="@color/color_selector_navigation_item"
         app:itemTextColor="@color/color_selector_navigation_item"
-        app:headerLayout="@layout/nav_header_all_cards"
-        app:menu="@menu/activity_all_cards_drawer" />
+        app:headerLayout="@layout/nav_header_privacy"
+        app:menu="@menu/activity_privacy_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

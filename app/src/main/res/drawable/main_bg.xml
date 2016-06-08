@@ -24,12 +24,13 @@
         </shape>
     </item>
     <item >
+
         <shape android:shape="rectangle">
             <gradient
             android:startColor="#49474C"
             android:centerColor="#333334"
             android:endColor="#111111"
-                android:angle="-90"/>
+            android:angle="-90"/>
         </shape>
     </item>
 </layer-list>

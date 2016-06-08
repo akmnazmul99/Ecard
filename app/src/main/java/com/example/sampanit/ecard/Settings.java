@@ -13,17 +13,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 
-public class AllCards extends AppCompatActivity
+public class Settings extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private static LinearLayout privacy_layout, notification_layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_cards);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.all_cards_toolbar);
+        setContentView(R.layout.activity_settings);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.settings_toolbar);
         setSupportActionBar(toolbar);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -31,8 +31,37 @@ public class AllCards extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.all_cards_nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.settings_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        onClickPrivacyLayoutListener();
+        onClickNotificationLayoutListener();
+    }
+
+    public void onClickPrivacyLayoutListener(){
+        privacy_layout = (LinearLayout)findViewById(R.id.privacy_page_link_up);
+        privacy_layout.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent privacy_intent = new Intent(Settings.this, Privacy.class);
+                        startActivity(privacy_intent);
+                    }
+                }
+        );
+    }
+
+    public void onClickNotificationLayoutListener(){
+        notification_layout = (LinearLayout)findViewById(R.id.notification_page_link_up);
+        notification_layout.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent notification_intent = new Intent(Settings.this, Notifications.class);
+                        startActivity(notification_intent);
+                    }
+                }
+        );
     }
 
     @Override
@@ -48,7 +77,7 @@ public class AllCards extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.all_cards, menu);
+        getMenuInflater().inflate(R.menu.settings, menu);
         return true;
     }
 
@@ -76,14 +105,14 @@ public class AllCards extends AppCompatActivity
         if (id == R.id.nav_profile) {
 
         } else if (id == R.id.nav_all_cantacts) {
-            Intent nav_all_cantacts_intent = new Intent(AllCards.this, AllContacts.class);
+            Intent nav_all_cantacts_intent = new Intent(Settings.this, AllContacts.class);
             startActivity(nav_all_cantacts_intent);
         }
-     else if (id == R.id.nav_all_cards) {
+        else if (id == R.id.nav_all_cards) {
 
-    }
+        }
         else if (id == R.id.nav_settings) {
-            Intent nav_setting_intent = new Intent(AllCards.this, Settings.class);
+            Intent nav_setting_intent = new Intent(Settings.this, Settings.class);
             startActivity(nav_setting_intent);
         }
 //        if (id == R.id.nav_camera) {

@@ -3,5 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <!--manual color-->
+
+    <color name="color_navigation_list_background">#088DA5</color>
+    <color name="color_selector_navigation_item">#FFFFFF</color>
 
 </resources>

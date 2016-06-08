@@ -13,17 +13,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
-public class AllCards extends AppCompatActivity
+public class AllContacts extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private ImageView imageViewRound;
+    private LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_cards);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.all_cards_toolbar);
+        setContentView(R.layout.activity_all_contacts);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.all_contacts_toolbar);
         setSupportActionBar(toolbar);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -31,8 +33,17 @@ public class AllCards extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.all_cards_nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.all_contacts_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        imageViewRound =(ImageView)findViewById(R.id.contact_imageView_round_1);
+        imageViewRound =(ImageView)findViewById(R.id.contact_imageView_round_2);
+        imageViewRound =(ImageView)findViewById(R.id.contact_imageView_round_3);
+        imageViewRound =(ImageView)findViewById(R.id.contact_imageView_round_4);
+        imageViewRound =(ImageView)findViewById(R.id.contact_imageView_round_5);
+        imageViewRound =(ImageView)findViewById(R.id.contact_imageView_round_6);
+        imageViewRound =(ImageView)findViewById(R.id.contact_imageView_round_7);
+        imageViewRound =(ImageView)findViewById(R.id.contact_imageView_round_8);
     }
 
     @Override
@@ -48,7 +59,7 @@ public class AllCards extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.all_cards, menu);
+        getMenuInflater().inflate(R.menu.all_contacts, menu);
         return true;
     }
 
@@ -72,18 +83,17 @@ public class AllCards extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_profile) {
 
         } else if (id == R.id.nav_all_cantacts) {
-            Intent nav_all_cantacts_intent = new Intent(AllCards.this, AllContacts.class);
+            Intent nav_all_cantacts_intent = new Intent(AllContacts.this, AllContacts.class);
             startActivity(nav_all_cantacts_intent);
         }
-     else if (id == R.id.nav_all_cards) {
+        else if (id == R.id.nav_all_cards) {
 
-    }
+        }
         else if (id == R.id.nav_settings) {
-            Intent nav_setting_intent = new Intent(AllCards.this, Settings.class);
+            Intent nav_setting_intent = new Intent(AllContacts.this, Settings.class);
             startActivity(nav_setting_intent);
         }
 //        if (id == R.id.nav_camera) {
