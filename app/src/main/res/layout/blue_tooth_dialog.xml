@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="16dp">
+<TextView
+    android:id="@+id/text_view_1st_line"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="To use Bluetooth services,"
+    android:textSize="20dp"
+    android:textColor="#FF6600"
+    android:gravity="center"
+    android:textStyle="italic|bold"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"/>
+    <TextView
+        android:id="@+id/text_view_2nd_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_1st_line"
+        android:text="You must first turn on Bluetooth"
+        android:textSize="16dp"
+        android:textColor="#FF6600"
+        android:gravity="center"
+        android:textStyle="italic|bold"/>
+    <TextView
+        android:id="@+id/text_view_3rd_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_2nd_line"
+        android:layout_marginTop="15dp"
+        android:text="Turn on BlueTooth now?"
+        android:textSize="20dp"
+        android:textColor="#FF6600"
+        android:gravity="center"
+        android:textStyle="italic|bold"/>
+    <Button
+        android:id="@+id/no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_3rd_line"
+        android:layout_alignLeft="@+id/text_view_1st_line"
+        android:text="No"
+        android:textColor="#FF6600"
+        />
+    <Button
+        android:id="@+id/yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_3rd_line"
+        android:layout_toRightOf="@+id/text_view_1st_line"
+        android:text="Yes"
+        android:textColor="#FF6600"
+        />
+</RelativeLayout>

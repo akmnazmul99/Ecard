@@ -7,5 +7,6 @@
 
     <color name="color_navigation_list_background">#088DA5</color>
     <color name="color_selector_navigation_item">#FFFFFF</color>
+    <color name="common_color">#FF6600</color>
 
 </resources>

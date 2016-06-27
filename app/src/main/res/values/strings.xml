@@ -37,5 +37,12 @@
     <string name="title_activity_privacy">Privacy</string>
     <string name="title_activity_all_contacts">AllContacts</string>
     <string name="title_activity_single_contact">SingleContact</string>
+    <string name="title_activity_share_card_via_options">ShareCardViaOptions</string>
+    <string name="title_activity_qr_code">QrCode</string>
+    <string name="title_activity_email_compose">EmailCompose</string>
 
+    <string name="et_from_email_address_hint"><font size="16">From</font></string>
+    <string name="et_to_email_address_hint"><font size="16">To</font></string>
+    <string name="et_cc_email_address_hint"><font size="16">Cc</font></string>
+    <string name="et_bcc_email_address_hint"><font size="16">Bcc</font></string>
 </resources>
