@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.sampanit.ecard.CardInfoManualUpdate">
+    tools:openDrawer="start">
 
-    <android.support.design.widget.AppBarLayout
+    <include
+        layout="@layout/app_bar_card_info_manual_update"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-    </android.support.design.widget.AppBarLayout>
+        android:layout_height="match_parent" />
 
-    <include layout="@layout/content_card_info_manual_update" />
-</android.support.design.widget.CoordinatorLayout>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/card_info_manual_update_nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        android:background="@color/color_navigation_list_background"
+        app:itemIconTint="@color/color_selector_navigation_item"
+        app:itemTextColor="@color/color_selector_navigation_item"
+        app:headerLayout="@layout/nav_header_card_info_manual_update"
+        app:menu="@menu/activity_card_info_manual_update_drawer" />
+
+</android.support.v4.widget.DrawerLayout>

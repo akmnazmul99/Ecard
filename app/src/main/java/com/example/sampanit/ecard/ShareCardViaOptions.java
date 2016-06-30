@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.view.ContextMenu;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,12 +18,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ListView;
+import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class ShareCardViaOptions extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, BlueToothDialog.communicator {
+import java.util.Arrays;
 
+public class ShareCardViaOptions extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
+
+    long btn;
+    private String [] share_card_list_items;
     GridView grid;
     String[] grid_items = {
             "Bluetooth",
@@ -59,75 +69,50 @@ public class ShareCardViaOptions extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         CustomGrid adapter = new CustomGrid(ShareCardViaOptions.this, grid_items, grid_image);
-        grid=(GridView)findViewById(R.id.grid);
+        grid=(GridView)findViewById(R.id.list);
         grid.setAdapter(adapter);
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               // Toast.makeText(ShareCardViaOptions.this, "You Clicked at " + id, Toast.LENGTH_SHORT).show();
 
-                if (position == 0) {
+                switch( position )
+                {
+                    case 0:
+                        Intent bluetooth_intent = new Intent(ShareCardViaOptions.this, DisplayBluetoothDevices.class);
+                        startActivity(bluetooth_intent);
+                        break;
+                    case 1:
+                        Intent email_intent = new Intent(view.getContext(), EmailCompose.class);
+                        startActivityForResult(email_intent, 0);
+                        break;
+                    case 2:
+                        Toast.makeText(ShareCardViaOptions.this, "Facebook Feature is Not Available", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 3:
+                        Toast.makeText(ShareCardViaOptions.this, "Gmail Feature is Not Available", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 4:
+                        Toast.makeText(ShareCardViaOptions.this, "Google+ Feature is Not Available", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 5:
+                        Toast.makeText(ShareCardViaOptions.this, "Messaging Feature is Not Available", Toast.LENGTH_SHORT).show();
+                        break;
 
-                    FragmentManager manager = getFragmentManager();
-                    BlueToothDialog blueToothDialog = new BlueToothDialog();
-                    blueToothDialog.show(manager, "BlueToothDialog");
-
-
-
-                   // onClickBluetoothListener();
-                   // Intent bluetooth_intent = new Intent(ShareCardViaOptions.this, SignUp.class);
-                  //  startActivity(bluetooth_intent);
-                } else if (position == 1) {
-                    //Intent email_intent = new Intent(ShareCardViaOptions.this, AllContacts.class);
-                    //startActivity(email_intent);
-                }  else if (position == 2) {
-                    Intent facebook_intent = new Intent(ShareCardViaOptions.this, AllContacts.class);
-                    startActivity(facebook_intent);
-                } else if (position == 3) {
-                    Intent gmail_intent = new Intent(ShareCardViaOptions.this, AllContacts.class);
-                    startActivity(gmail_intent);
-                } else if (position == 4) {
-                    Intent google_plus_intent = new Intent(ShareCardViaOptions.this, AllContacts.class);
-                    startActivity(google_plus_intent);
-                }
-                else if (position == 5) {
-                    Intent messaging_intent = new Intent(ShareCardViaOptions.this, AllContacts.class);
-                    startActivity(messaging_intent);
                 }
             }
         });
     }
 
-/*    public void onClickBluetoothListener(){
-        grid_click_item = (GridView)findViewById(R.id.grid);
-        grid_click_item.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        AlertDialog.Builder bluetooth_alert_dialog = new AlertDialog.Builder(ShareCardViaOptions.this);
-                        bluetooth_alert_dialog.setMessage("This is a Test")
-                                .setCancelable(false)
-                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                         Intent bluetooth_intent = new Intent(ShareCardViaOptions.this, SignUp.class);
-                                          startActivity(bluetooth_intent);
-                                    }
-                                })
-                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.cancel();
-                                    }
-                                });
-                        AlertDialog alert_dialog = bluetooth_alert_dialog.create();
-                        alert_dialog.setTitle("Alert!!!");
-                        alert_dialog.show();
-                    }
-                }
-        );
-    }*/
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        if(v.getId() == R.id.list){
+            AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+            menu.setHeaderTitle(share_card_list_items[info.position]);
+        }
+    }
 
     @Override
     public void onBackPressed() {
@@ -154,9 +139,17 @@ public class ShareCardViaOptions extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
+        if (id == R.id.card_search) {
+            //return true;
+        }
+        else if(id == R.id.select_card){
+            Intent select_card_intent = new Intent(ShareCardViaOptions.this, AllCards.class);
+            startActivity(select_card_intent);
+        }
+        else if(id == R.id.create_card){
+            Intent create_card_intent = new Intent(ShareCardViaOptions.this, CardInfoManualUpdate.class);
+            startActivity(create_card_intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -168,40 +161,25 @@ public class ShareCardViaOptions extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
+            Intent nav_profile_intent = new Intent(ShareCardViaOptions.this, SingleContact.class);
+            startActivity(nav_profile_intent);
 
         } else if (id == R.id.nav_all_cantacts) {
             Intent nav_all_cantacts_intent = new Intent(ShareCardViaOptions.this, AllContacts.class);
             startActivity(nav_all_cantacts_intent);
         }
         else if (id == R.id.nav_all_cards) {
-
+            Intent nav_all_cards_intent = new Intent(ShareCardViaOptions.this, AllCards.class);
+            startActivity(nav_all_cards_intent);
         }
         else if (id == R.id.nav_settings) {
             Intent nav_setting_intent = new Intent(ShareCardViaOptions.this, Settings.class);
             startActivity(nav_setting_intent);
         }
-//        if (id == R.id.nav_camera) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_gallery) {
-//
-//        } else if (id == R.id.nav_slideshow) {
-//
-//        } else if (id == R.id.nav_manage) {
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    @Override
-    public void dialogActivity() {
-         Intent bluetooth_intent = new Intent(ShareCardViaOptions.this, SignUp.class);
-          startActivity(bluetooth_intent);
-    }
 }

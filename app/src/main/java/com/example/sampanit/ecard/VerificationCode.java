@@ -9,12 +9,13 @@ import android.widget.Button;
 
 public class VerificationCode extends AppCompatActivity {
     private static Button button_verification_code;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verification_code);
 
-        onClickVerificationCodeSendButtonListener();
+            onClickVerificationCodeSendButtonListener();
     }
     public void onClickVerificationCodeSendButtonListener(){
         button_verification_code = (Button)findViewById(R.id.verification_code_send_button);
@@ -28,4 +29,5 @@ public class VerificationCode extends AppCompatActivity {
                 }
         );
     }
+
 }

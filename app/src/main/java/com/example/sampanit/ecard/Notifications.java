@@ -60,9 +60,17 @@ public class Notifications extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
+        if (id == R.id.card_search) {
+            //return true;
+        }
+        else if(id == R.id.select_card){
+            Intent select_card_intent = new Intent(Notifications.this, AllCards.class);
+            startActivity(select_card_intent);
+        }
+        else if(id == R.id.create_card){
+            Intent create_card_intent = new Intent(Notifications.this, CardInfoManualUpdate.class);
+            startActivity(create_card_intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -74,31 +82,21 @@ public class Notifications extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
+            Intent nav_profile_intent = new Intent(Notifications.this, SingleContact.class);
+            startActivity(nav_profile_intent);
 
         } else if (id == R.id.nav_all_cantacts) {
             Intent nav_all_cantacts_intent = new Intent(Notifications.this, AllContacts.class);
             startActivity(nav_all_cantacts_intent);
         }
         else if (id == R.id.nav_all_cards) {
-
+            Intent nav_all_cards_intent = new Intent(Notifications.this, AllCards.class);
+            startActivity(nav_all_cards_intent);
         }
         else if (id == R.id.nav_settings) {
             Intent nav_setting_intent = new Intent(Notifications.this, Settings.class);
             startActivity(nav_setting_intent);
         }
-//        if (id == R.id.nav_camera) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_gallery) {
-//
-//        } else if (id == R.id.nav_slideshow) {
-//
-//        } else if (id == R.id.nav_manage) {
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

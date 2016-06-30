@@ -218,13 +218,13 @@
                     android:background="#E97868"/>
 
                 <Button
+                    android:id="@+id/b_open_dialog_share_box"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="35dp"
                     android:textColor="#FF6600"
                     android:textSize="18dp"
                     android:drawableLeft="@android:drawable/ic_menu_share"
-                    android:onClick="ShowDialogListViewToShareCard"
                     android:textAllCaps="false"
                     android:gravity="center"
                     android:text="Share Card" />

@@ -33,6 +33,8 @@ public class EmailCompose extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.email_compose_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
     }
 
     @Override
@@ -59,10 +61,17 @@ public class EmailCompose extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
+        if (id == R.id.card_search) {
+            //return true;
+        }
+        else if(id == R.id.select_card){
+            Intent select_card_intent = new Intent(EmailCompose.this, AllCards.class);
+            startActivity(select_card_intent);
+        }
+        else if(id == R.id.create_card){
+            Intent create_card_intent = new Intent(EmailCompose.this, CardInfoManualUpdate.class);
+            startActivity(create_card_intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -74,37 +83,30 @@ public class EmailCompose extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
-
+            Intent nav_profile_intent = new Intent(EmailCompose.this, SingleContact.class);
+            startActivity(nav_profile_intent);
         } else if (id == R.id.nav_all_cantacts) {
             Intent nav_all_cantacts_intent = new Intent(EmailCompose.this, AllContacts.class);
             startActivity(nav_all_cantacts_intent);
         }
         else if (id == R.id.nav_all_cards) {
-
+            Intent nav_all_cards_intent = new Intent(EmailCompose.this, AllCards.class);
+            startActivity(nav_all_cards_intent);
         }
         else if (id == R.id.nav_settings) {
             Intent nav_setting_intent = new Intent(EmailCompose.this, Settings.class);
             startActivity(nav_setting_intent);
         }
-//        if (id == R.id.nav_camera) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_gallery) {
-//
-//        } else if (id == R.id.nav_slideshow) {
-//
-//        } else if (id == R.id.nav_manage) {
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 }
+
+
+
 //How to send an email with a file attachment in Android
 //url: http://stackoverflow.com/questions/9974987/how-to-send-an-email-with-a-file-attachment-in-android
 //String filename="contacts_sid.vcf";

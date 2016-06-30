@@ -25,13 +25,11 @@
             android:textStyle="bold|normal"
             android:typeface="serif" />
         <GridView
-            android:id="@+id/grid"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:columnWidth="100dp"
-            android:stretchMode="columnWidth"
-            android:numColumns="auto_fit"
-            android:gravity="center" />
+            android:id="@+id/list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numColumns="3"
+            />
 
 </LinearLayout>
 </LinearLayout>

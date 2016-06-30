@@ -45,4 +45,9 @@
     <string name="et_to_email_address_hint"><font size="16">To</font></string>
     <string name="et_cc_email_address_hint"><font size="16">Cc</font></string>
     <string name="et_bcc_email_address_hint"><font size="16">Bcc</font></string>
+    <string name="title_activity_profile_pictute">ProfilePictute</string>
+    <string name="title_activity_profile_picture">ProfilePicture</string>
+    <string name="title_activity_display_bluetooth_devices">DisplayBluetoothDevices</string>
+    <string name="title_activity_complete_profile_indicator">CompleteProfileIndicator</string>
+    <string name="title_activity_complete_profile">CompleteProfile</string>
 </resources>

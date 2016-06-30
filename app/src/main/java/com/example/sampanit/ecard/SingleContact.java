@@ -1,6 +1,7 @@
 package com.example.sampanit.ecard;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,16 +20,20 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class SingleContact extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-    private ListView listView = null;
+        implements NavigationView.OnNavigationItemSelectedListener, DialogInterface.OnClickListener {
     private ImageView imageViewRound;
+    private static String[] items = {"Email","QR Code","Others"};
+    private Button button_open_dialog;
+    AlertDialog ad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,46 +52,23 @@ public class SingleContact extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         imageViewRound =(ImageView)findViewById(R.id.contact_imageView_round_1);
-        listView = new ListView(this);
 
-        final String[] items = {"Email","QR Code","Others"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_view_share_card, R.id.txtitem, items);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        button_open_dialog = (Button)findViewById(R.id.b_open_dialog_share_box);
+        button_open_dialog.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ViewGroup vg = (ViewGroup)view;
-                TextView txt = (TextView)vg.findViewById(R.id.txtitem);
-                txt.setTextSize(18);
-                txt.setTextColor(Color.BLACK);
-                switch( position )
-                {
-                    case 0:  Intent newActivity1 = new Intent(SingleContact.this, EmailCompose.class);
-                        startActivity(newActivity1);
-                        break;
-                    case 1:  Intent newActivity2 = new Intent(SingleContact.this, QrCode.class);
-                        startActivity(newActivity2);
-                        break;
-                    case 2:  Intent newActivity3 = new Intent(SingleContact.this, ShareCardViaOptions.class);
-                        startActivity(newActivity3);
-                        break;
-
-                }
-
+            public void onClick(View v) {
+                ad.show();
             }
         });
-    }
-
-    public void ShowDialogListViewToShareCard(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(SingleContact.this);
+            AlertDialog.Builder builder = new  AlertDialog.Builder(this);
         builder.setTitle("Share via");
-        builder.setCancelable(true);
-        builder.setNegativeButton("Cancel", null);
-        builder.setView(listView);
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
+        builder.setItems(items, this);
 
+        builder.setNegativeButton("Cancel", null);
+        ad = builder.create();
+
+
+    }
 
     @Override
     public void onBackPressed() {
@@ -113,9 +95,17 @@ public class SingleContact extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
+        if (id == R.id.card_search) {
+            //return true;
+        }
+        else if(id == R.id.select_card){
+            Intent select_card_intent = new Intent(SingleContact.this, AllCards.class);
+            startActivity(select_card_intent);
+        }
+        else if(id == R.id.create_card){
+            Intent create_card_intent = new Intent(SingleContact.this, CardInfoManualUpdate.class);
+            startActivity(create_card_intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -127,34 +117,44 @@ public class SingleContact extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
+            Intent nav_profile_intent = new Intent(SingleContact.this, SingleContact.class);
+            startActivity(nav_profile_intent);
 
         } else if (id == R.id.nav_all_cantacts) {
             Intent nav_all_cantacts_intent = new Intent(SingleContact.this, AllContacts.class);
             startActivity(nav_all_cantacts_intent);
         }
         else if (id == R.id.nav_all_cards) {
-
+            Intent nav_all_cards_intent = new Intent(SingleContact.this, AllCards.class);
+            startActivity(nav_all_cards_intent);
         }
         else if (id == R.id.nav_settings) {
             Intent nav_setting_intent = new Intent(SingleContact.this, Settings.class);
             startActivity(nav_setting_intent);
         }
-//        if (id == R.id.nav_camera) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_gallery) {
-//
-//        } else if (id == R.id.nav_slideshow) {
-//
-//        } else if (id == R.id.nav_manage) {
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    public void onClick(DialogInterface dialog, int pos) {
+        switch( pos )
+        {
+            case 0:
+                Intent email_intent = new Intent(SingleContact.this, EmailCompose.class);
+                startActivityForResult(email_intent, 0);
+                break;
+            case 1:
+                Intent qr_code_intent = new Intent(SingleContact.this, QrCode.class);
+                startActivityForResult(qr_code_intent, 0);
+                break;
+            case 2:
+                Intent other_intent = new Intent(SingleContact.this, ShareCardViaOptions.class);
+                startActivityForResult(other_intent, 0);
+                break;
+        }
+    }
 }
+
