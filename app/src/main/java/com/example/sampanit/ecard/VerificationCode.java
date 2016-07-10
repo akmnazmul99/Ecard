@@ -23,7 +23,7 @@ public class VerificationCode extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent sign_up_intent = new Intent(VerificationCode.this, Main.class);
+                        Intent sign_up_intent = new Intent(VerificationCode.this, CompleteProfileIndicator.class);
                         startActivity(sign_up_intent);
                     }
                 }

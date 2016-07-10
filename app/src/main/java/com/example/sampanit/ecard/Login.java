@@ -22,7 +22,7 @@ public class Login extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent login_intent = new Intent(Login.this, VerificationCode.class);
+                        Intent login_intent = new Intent(Login.this, AllCards.class);
                         startActivity(login_intent);
                     }
                 }
